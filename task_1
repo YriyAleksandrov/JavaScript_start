@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson_3_1</title>
+</head>
+<body>
+<script>
+    /*С помощью цикла while вывести все простые числа в промежутке от 0 до 100.*/
+
+    checkpoint:
+    for (let i = 2; i <= 100 ; i++) {
+        for (let j = 2; j < i; j++) {
+            if (i % j === 0) continue checkpoint;
+        }
+        console.log(i)
+    }
+
+</script>
+</body>
+</html>
