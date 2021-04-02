@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson_2_6</title>
+</head>
+<body>
+<script>
+    /* Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation),
+    где arg1, arg2 – значения аргументов, operation – строка с названием операции.
+    В зависимости от переданного значения операции выполнить одну из арифметических операций
+    (использовать функции из пункта 5) и вернуть полученное значение (использовать switch). */
+
+    function mathOperation(arg1, arg2, operation){
+        switch(operation){
+            case '+': return arg1 + arg2;
+            case '-': return arg1 - arg2;
+            case '/': return arg1 / arg2;
+            case '*': return arg1 * arg2;
+        }
+    }
+
+    alert(mathOperation(+prompt('первое число: '), +prompt('второе число: '), prompt('операция +, -, / или *: ')))
+
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+// var a = 6;
+// var b = 2;
+
+function adding (a, b) {
+    return (a + b);
+}
+
+function subtraction (a, b) {
+    return (a - b);
+}
+
+function division (a, b) {
+    return (a / b);
+}
+
+function multiplication (a, b) {
+    return (a * b);
+}
+
+// alert('сложение: ' + adding(a, b));
+// alert('вычитание: ' + subtraction(a, b));
+// alert('деление: ' + division(a, b));
+// alert('умножение: ' + multiplication(a, b));
