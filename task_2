@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson_4_2</title>
+</head>
+<body>
+<script>
+    /*Продолжить работу с интернет-магазином:
+    2.1. В прошлом домашнем задании вы реализовали корзину на базе массивов. Какими объектами можно заменить их элементы?
+    2.2. Реализуйте такие объекты.
+    2.3. Перенести функционал подсчета корзины на объектно-ориентированную базу.*/
+
+    const basket = {
+        ghostBasket: [
+            {
+                id: 1,
+                product: "комбинезон",
+                price: 600
+            },
+            {
+                id: 2,
+                product: "заплечный ядерный реактор",
+                price: 90000
+            },
+            {
+                id: 3,
+                product: "протонный излучатель",
+                price: 1500
+            },
+            {
+                id: 4,
+                product: "позитронная ловушка",
+                price: 2500
+            }
+        ],
+        countBasketPrice() {
+            return this.ghostBasket.reduce((summ, itemPrice) => summ + itemPrice.price, 0);
+        }
+    };
+
+    console.log("Стоимость снаряжения Охотника за приведениями: " + basket.countBasketPrice() + " у.е.");
+
+</script>
+</body>
+</html>
