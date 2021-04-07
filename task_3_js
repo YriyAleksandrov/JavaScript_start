@@ -1,0 +1,61 @@
+const cartItem = {
+    render(good) {
+        return `<div class="good"></div>`;
+    }
+}
+const basket = {
+    cartListBlock: null,
+    clearingButton: null,
+    cartItem,
+    ghostBasketEquipment: [
+        {
+            id: 1,
+            product: "комбинезон",
+            price: 600,
+            quantity: 1
+        },
+        {
+            id: 2,
+            product: "заплечный ядерный реактор",
+            price: 90000,
+            quantity: 1
+        },
+        {
+            id: 3,
+            product: "протонный излучатель",
+            price: 1500,
+            quantity: 1
+        },
+        {
+            id: 4,
+            product: "позитронная ловушка",
+            price: 2500,
+            quantity: 1
+        }
+    ],
+    init() {
+        this.cartListBlock = document.querySelector('.cart-list');
+        this.clearingButton = document.querySelector('.cart-btn');
+        this.clearingButton.addEventListener('click', () => this.clearCart());
+        this.render();
+    },
+    render() {
+        if (this.ghostBasketEquipment.length) {
+            this.cartListBlock.insertAdjacentHTML('beforeend', `В корзине ${this.ghostBasketEquipment.length}
+             позиции стоимостью ${this.countBasketPrice()}`);
+        } else {
+            this.cartListBlock.textContent = 'Корзина пуста';
+        }
+    },
+    countBasketPrice() {
+        return this.ghostBasketEquipment.reduce(function (summ, good) {
+            return summ + good.price * good.quantity;
+        }, 0);
+    },
+    clearCart() {
+        this.ghostBasketEquipment = [];
+        this.render();
+    },
+};
+basket.init();
+
