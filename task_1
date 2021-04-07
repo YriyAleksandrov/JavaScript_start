@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson_5_1</title>
+    <style>
+        table {
+            margin: auto;
+            border-collapse: collapse;
+        }
+        tr {
+            width: 40px;
+            height: 40px;
+        }
+        td {
+            border: 1px solid #4e4e4e;
+            width: 40px;
+            height: 40px;
+            background-color: #eee;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<table id="game">
+<script>
+    /** Создать функцию, генерирующую шахматную доску. При этом можно использовать любые html-теги по своему желанию.
+    Доска должна быть разлинована соответствующим образом, т.е. чередовать черные и белые ячейки.
+    Строки должны нумероваться числами от 1 до 8, столбцы – латинскими буквами A, B, C, D, E, F, G, H.
+
+    ДОПОЛНИТЕЛЬНОЕ ЗАДАНИЕ!!!
+    Заполнить созданную таблицу буквами, отвечающими за шахматную фигуру, например К – король, Ф – ферзь и т.п.,*/
+
+    function chess() {
+        let container = document.getElementById('game');
+        let rows = [" ", 8, 7, 6, 5, 4, 3, 2, 1, " "];
+        let cols = [" ", 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', " "];
+        let figure = "";
+        for (let row = 0; row < rows.length; row++) {
+            let tr = document.createElement('tr');
+            container.appendChild(tr);
+            for (let col = 0; col < cols.length; col++) {
+                let td = document.createElement('td');
+                tr.appendChild(td);
+                if (rows[row] === " " && cols[col] !== " ") {
+                    td.innerHTML = cols[col];
+                } else if (cols[col] === " " && rows[row] !== " ") {
+                    td.innerHTML = rows[row].toString();
+                }
+                if (pour(row, col)) {
+                    td.style.backgroundColor = "#4e4e4e";
+                }
+                if (placement(row, col)) {
+                    td.innerText = figure;
+                }
+            }
+        }
+        function pour(rowNum, colNum) {
+            if (rowNum === 0 || colNum === 0 || rowNum === 9 || colNum === 9) {
+                return false;
+            }
+            return (rowNum % 2 === 1 && colNum % 2 === 0) || (rowNum % 2 === 0 && colNum % 2 === 1);
+        }
+        window.onload = pour;
+
+        function placement(rowNum, colNum) {
+            if  ((rowNum === 2 || rowNum === 7) && colNum !== 0 && colNum !== 9) {
+                return figure = 'П'
+            }
+            if  (rowNum === 1 || rowNum === 8) {
+                if (colNum === 1 || colNum === 8) {
+                    return figure = 'Л'
+                } else if (colNum === 2 || colNum === 7) {
+                    return figure = 'К'
+                } else if (colNum === 3 || colNum === 6) {
+                    return figure = 'C'
+                } else if (colNum === 4) {
+                    return figure = 'Ф'
+                } else if (colNum === 5) {
+                    return figure = 'Царь'
+                }
+            }
+        }
+        window.onload = placement;
+    }
+    window.onload = chess;
+
+</script>
+</table>
+</body>
+</html>
