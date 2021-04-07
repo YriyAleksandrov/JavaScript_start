@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson_5_3</title>
+    <script src="./Lesson_5_3.js" defer></script>
+    <style>
+        .good {
+            border: 1px solid #000;
+            margin-bottom: 5px;
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<script>
+    /** Сделать генерацию корзины динамической: верстка корзины не должна находиться в HTML-структуре.
+     Там должен быть только div, в который будет вставляться корзина, сгенерированная на базе JS:
+     - Пустая корзина должна выводить строку «Корзина пуста»;
+     - Наполненная должна выводить «В корзине: n товаров на сумму m рублей».*/
+</script>
+
+<div class="cart-list"></div>
+<button class="cart-btn">Очистить корзину</button>
+
+</body>
+</html>
